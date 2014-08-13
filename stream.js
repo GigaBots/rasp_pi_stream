@@ -2,10 +2,10 @@
 * Live video-stream program for Rasp Pi
 */
 
-var BrowserBigBangClient = require("./dist/node/BigBangClient.js");
-var BigBangClient = require("./dist/node/BigBangClient.js");
-var NodeBigBangClient = require("./dist/node/NodeBigBangClient.js")
-var PewRuntime = require("./dist/node/BigBangClient.js");
+var BrowserBigBangClient = require("./BigBangClient.js");
+var BigBangClient = require("./BigBangClient.js");
+var NodeBigBangClient = require("./NodeBigBangClient.js")
+var PewRuntime = require("./BigBangClient.js");
 
 var client = new bigbang.client.BigBangClient();
 

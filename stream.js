@@ -2,12 +2,12 @@
 * Live video-stream program for Rasp Pi
 */
 
-var BrowserBigBangClient = require("./BigBangClient.js");
-var BigBangClient = require("./BigBangClient.js");
-var PewRuntime = require("./BigBangClient.js");
-var NodeBigBangClient = require("./NodeBigBangClient.js");
-
 var websocket = require('websocket');
+
+var BrowserBigBangClient = require("./BigBangClient.js"),
+	BigBangClient = require("./BigBangClient.js"),
+	PewRuntime = require("./BigBangClient.js"),
+	NodeBigBangClient = require("./NodeBigBangClient.js");
 
 
 require(['BigBangClient', 'PewRuntime'], function (bigbang, pew) {
@@ -31,11 +31,12 @@ require(['BigBangClient', 'PewRuntime'], function (bigbang, pew) {
 	});
 
 	function beginStream(client, channel) {
-		console.log("Begin Stream!!");
-
-		//TODO
-
-}
+		console.log("Commence ze streaming now!!!");
+		/*
+		*TODO
+		*
+		*/
+	}
 
 });
 

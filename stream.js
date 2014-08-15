@@ -4,39 +4,40 @@
 
 var websocket = require('websocket');
 
-var BrowserBigBangClient = require("./BigBangClient.js"),
-	BigBangClient = require("./BigBangClient.js"),
+var	BigBangClient = require("./BigBangClient.js"),
 	PewRuntime = require("./BigBangClient.js"),
-	NodeBigBangClient = require("./NodeBigBangClient.js");
+	bbNode = require("./NodeBigBangClient.js");
 
+var client = new bbNode.NodeBigBangClient();
 
-require(['BigBangClient', 'PewRuntime'], function (bigbang, pew) {
-
-	var client = new bigbang.client.BigBangClient();
-
-	client.connectAnonymous("thegigabots.app.bigbang.io:80", function(result) {
-		if( result.success) {
-			client.subscribe("newBot", function( err, c) {
-				if(!err) {
-					beginStream(client,c);
-				}
-				else {
-					console.log("Subscribe failure. " + err);
-				}
-			})
-		}
-		else {
-			console.log("Connect Failure.");
-		}
-	});
-
-	function beginStream(client, channel) {
-		console.log("Commence ze streaming now!!!");
-		/*
-		*TODO
-		*
-		*/
+client.connectAnonymous("thegigabots.app.bigbang.io:80", function(result) {
+	if( result.success) {
+		client.subscribe("newBot", function( err, c) {
+			if(!err) {
+				beginStream(client,c);
+			}
+			else {
+				console.log("Subscribe failure. " + err);
+			}
+		})
 	}
-
+	else {
+		console.log("Connect Failure.");
+	}
 });
+
+function beginStream(client, channel) {
+	console.log("Commence ze streaming now!!!");
+	/*
+	*TODO
+	*
+	*/
+
+	var intervalMessages = setInterval( function () { sendMessages()}, 1000);
+
+}
+
+function sendMessages() {
+	console.log("sending message...");
+}
 

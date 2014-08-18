@@ -9,11 +9,13 @@ var	BigBangClient = require("./BigBangClient.js"),
 	bbNode = require("./NodeBigBangClient.js");
 
 var client = new bbNode.NodeBigBangClient();
+var myChannel;
 
 client.connectAnonymous("thegigabots.app.bigbang.io:80", function(result) {
 	if( result.success) {
 		client.subscribe("newBot", function( err, c) {
 			if(!err) {
+				myChannel = c;
 				beginStream(client,c);
 			}
 			else {
@@ -38,6 +40,11 @@ function beginStream(client, channel) {
 }
 
 function sendMessages() {
-	console.log("sending message...");
+	myChannel.publish("publishing event...", function (err) {
+        if (err) {
+            console.log("Publish error:" + err);
+        }
+    });
+	//console.log("publishing event...");
 }
 
